@@ -3,7 +3,7 @@
 
 #include<iostream>   //in  out   stream     输入输出流
 using namespace std;   //调用命名空间std内定义的所有标识符;标准库中的所有内容都放置在命名空间std中
-
+#include<string>
 
 
 #define Day 7
@@ -59,6 +59,62 @@ int main()
 	//科学计数法
 	float f2 = 3e-2;
 	cout << f2 << endl;
+
+
+
+	//字符型--单引号字符，双引号字符串
+	//char型占一个字节，将对应的ASCII值放入存储单元
+	char ch = 'a';
+	cout << ch << endl<<sizeof(char)<<endl<<(int)ch<<endl;
+
+
+
+	//转义字符    \n换行   \\反斜杠   \t水平制表符(8个位置，空格补齐，对齐效果) ..........
+	cout << "hello world\n" << "\\" << endl << "aaa\thello world" << endl;
+	
+
+
+	//字符串型
+	//C风格：char 变量名【】="字符串"(用数组存放字符串)
+	//C++风格：string 变量名="字符串"
+	char str1[] = "hello world";
+	string str2 = "hello world";
+	cout << str1 << endl << str2 << endl;
+
+
+
+	//布尔类型 true  false   占1个字节
+	bool flag = true;
+	cout << flag << endl << sizeof(bool) << endl;
+
+
+	//数据的输入输出
+	int b = 0;
+	cin >> b;
+	cout << b << endl;
+
+
+
+	//运算符
+
+
+
+	//选择结构
+	int score = 0;
+	cout << "输入分数:";
+	cin >> score;
+	if (score > 600)       //后面不要加分号
+	{
+		cout << "考上一本" << endl;
+	}
+	else if (score > 500)
+	{
+		cout <<"考上二本" << endl;
+	}
+	else
+	{
+		cout << "继续努力" << endl;
+	}
 
 
 
