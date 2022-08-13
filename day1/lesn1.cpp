@@ -6,115 +6,192 @@ using namespace std;   //µ÷ÓÃÃüÃû¿Õ¼ästdÄÚ¶¨ÒåµÄËùÓĞ±êÊ¶·û;±ê×¼¿âÖĞµÄËùÓĞÄÚÈİ¶¼·
 #include<string>
 
 
-#define Day 7
+//#define Day 7
 int main()
 {
-	cout << "hello world" << endl;
-	//endl--±ê×¼¿âÊäÈëÊä³ö»»ĞĞ
+	//cout << "hello world" << endl;
+	////endl--±ê×¼¿âÊäÈëÊä³ö»»ĞĞ
 
 
 
 
-	//±äÁ¿´´½¨Óï·¨:Êı¾İÀàĞÍ ±äÁ¿Ãû=³õÊ¼Öµ;
-	int a = 10;
-	cout << "a = " << a << endl;
+	////±äÁ¿´´½¨Óï·¨:Êı¾İÀàĞÍ ±äÁ¿Ãû=³õÊ¼Öµ;
+	//int a = 10;
+	//cout << "a = " << a << endl;
 
 
 
 
-	//c++¶¨Òå³£Á¿·½Ê½£º(³£Á¿²»¿ÉĞŞ¸Ä£©
-	//1.ºê³£Á¿£º#define ³£Á¿Ãû ³£Á¿Öµ£¨Ö»ÊÇ¶¨Òå·ûºÅ£¬²»ÊÇtypedef¶¨ÒåÀàĞÍ£©
-	//2.const³£±äÁ¿£ºconst Êı¾İÀàĞÍ ³£Á¿Ãû=³£Á¿Öµ£¨²»¿É¸ü¸Ä£©
-	cout << "Ò»ÖÜÓĞ" << Day << "Ìì" << endl;
-	const int month = 12;
-	cout << "Ò»ÄêÓĞ" << month << "ÔÂ" << endl;
+	////c++¶¨Òå³£Á¿·½Ê½£º(³£Á¿²»¿ÉĞŞ¸Ä£©
+	////1.ºê³£Á¿£º#define ³£Á¿Ãû ³£Á¿Öµ£¨Ö»ÊÇ¶¨Òå·ûºÅ£¬²»ÊÇtypedef¶¨ÒåÀàĞÍ£©
+	////2.const³£±äÁ¿£ºconst Êı¾İÀàĞÍ ³£Á¿Ãû=³£Á¿Öµ£¨²»¿É¸ü¸Ä£©
+	//cout << "Ò»ÖÜÓĞ" << Day << "Ìì" << endl;
+	//const int month = 12;
+	//cout << "Ò»ÄêÓĞ" << month << "ÔÂ" << endl;
 
 
 
-	//¹Ø¼ü×Ö£¨±êÊ¶·û£©--²»¿ÉÊ¹ÓÃ
-	int num1 = 2;
-	int num2 = 8;
-	cout << num1 + num2 << endl;
+	////¹Ø¼ü×Ö£¨±êÊ¶·û£©--²»¿ÉÊ¹ÓÃ
+	//int num1 = 2;
+	//int num2 = 8;
+	//cout << num1 + num2 << endl;
 
 
 
-	//ÕûĞÎ£ºshort--2×Ö½Ú£»int--4×Ö½Ú£»long--4×Ö½Ú»ò8×Ö½Ú£»long long--8×Ö½Ú
-	short num1_1 = 10;
-	int num2_2 = 10;
-	long num3_3 = 10;
-	long long num4_4 = 10;
-	cout << sizeof(short) << endl;//sizeof(Êı¾İÀàĞÍ/±äÁ¿)--ËùÕ¼×Ö½Ú´óĞ¡
-	cout << sizeof(int) << endl;//
-	cout << sizeof(long) << endl;
-	cout << sizeof(long long) << endl;
+	////ÕûĞÎ£ºshort--2×Ö½Ú£»int--4×Ö½Ú£»long--4×Ö½Ú»ò8×Ö½Ú£»long long--8×Ö½Ú
+	//short num1_1 = 10;
+	//int num2_2 = 10;
+	//long num3_3 = 10;
+	//long long num4_4 = 10;
+	//cout << sizeof(short) << endl;//sizeof(Êı¾İÀàĞÍ/±äÁ¿)--ËùÕ¼×Ö½Ú´óĞ¡
+	//cout << sizeof(int) << endl;//
+	//cout << sizeof(long) << endl;
+	//cout << sizeof(long long) << endl;
 
 
 
 
-	//¸¡µãĞÍ: float--4×Ö½Ú   double--8×Ö½Ú
-	float f1 = 3.14f;//¼ÓÉÏf±íÊ¾µ¥¾«¶È
-	double d1 = 3.14;
+	////¸¡µãĞÍ: float--4×Ö½Ú   double--8×Ö½Ú
+	//float f1 = 3.14f;//¼ÓÉÏf±íÊ¾µ¥¾«¶È
+	//double d1 = 3.14;
 
 
-	//¿ÆÑ§¼ÆÊı·¨
-	float f2 = 3e-2;
-	cout << f2 << endl;
-
-
-
-	//×Ö·ûĞÍ--µ¥ÒıºÅ×Ö·û£¬Ë«ÒıºÅ×Ö·û´®
-	//charĞÍÕ¼Ò»¸ö×Ö½Ú£¬½«¶ÔÓ¦µÄASCIIÖµ·ÅÈë´æ´¢µ¥Ôª
-	char ch = 'a';
-	cout << ch << endl<<sizeof(char)<<endl<<(int)ch<<endl;
+	////¿ÆÑ§¼ÆÊı·¨
+	//float f2 = 3e-2;
+	//cout << f2 << endl;
 
 
 
-	//×ªÒå×Ö·û    \n»»ĞĞ   \\·´Ğ±¸Ü   \tË®Æ½ÖÆ±í·û(8¸öÎ»ÖÃ£¬¿Õ¸ñ²¹Æë£¬¶ÔÆëĞ§¹û) ..........
-	cout << "hello world\n" << "\\" << endl << "aaa\thello world" << endl;
-	
-
-
-	//×Ö·û´®ĞÍ
-	//C·ç¸ñ£ºchar ±äÁ¿Ãû¡¾¡¿="×Ö·û´®"(ÓÃÊı×é´æ·Å×Ö·û´®)
-	//C++·ç¸ñ£ºstring ±äÁ¿Ãû="×Ö·û´®"
-	char str1[] = "hello world";
-	string str2 = "hello world";
-	cout << str1 << endl << str2 << endl;
+	////×Ö·ûĞÍ--µ¥ÒıºÅ×Ö·û£¬Ë«ÒıºÅ×Ö·û´®
+	////charĞÍÕ¼Ò»¸ö×Ö½Ú£¬½«¶ÔÓ¦µÄASCIIÖµ·ÅÈë´æ´¢µ¥Ôª
+	//char ch = 'a';
+	//cout << ch << endl<<sizeof(char)<<endl<<(int)ch<<endl;
 
 
 
-	//²¼¶ûÀàĞÍ true  false   Õ¼1¸ö×Ö½Ú
-	bool flag = true;
-	cout << flag << endl << sizeof(bool) << endl;
+	////×ªÒå×Ö·û    \n»»ĞĞ   \\·´Ğ±¸Ü   \tË®Æ½ÖÆ±í·û(8¸öÎ»ÖÃ£¬¿Õ¸ñ²¹Æë£¬¶ÔÆëĞ§¹û) ..........
+	//cout << "hello world\n" << "\\" << endl << "aaa\thello world" << endl;
+	//
 
 
-	//Êı¾İµÄÊäÈëÊä³ö
-	int b = 0;
-	cin >> b;
+	////×Ö·û´®ĞÍ
+	////C·ç¸ñ£ºchar ±äÁ¿Ãû¡¾¡¿="×Ö·û´®"(ÓÃÊı×é´æ·Å×Ö·û´®)
+	////C++·ç¸ñ£ºstring ±äÁ¿Ãû="×Ö·û´®"
+	//char str1[] = "hello world";
+	//string str2 = "hello world";
+	//cout << str1 << endl << str2 << endl;
+
+
+
+	////²¼¶ûÀàĞÍ true  false   Õ¼1¸ö×Ö½Ú
+	//bool flag = true;
+	//cout << flag << endl << sizeof(bool) << endl;
+
+
+	////Êı¾İµÄÊäÈëÊä³ö
+	//int b = 0;
+	//cin >> b;
+	//cout << b << endl;
+
+
+
+	////ÔËËã·û
+
+
+
+	////Ñ¡Ôñ½á¹¹
+	//int score = 0;
+	//cout << "ÊäÈë·ÖÊı:";
+	//cin >> score;
+	//if (score > 600)       //ºóÃæ²»Òª¼Ó·ÖºÅ
+	//{
+	//	cout << "¿¼ÉÏÒ»±¾" << endl;
+	//}
+	//else if (score > 500)
+	//{
+	//	cout <<"¿¼ÉÏ¶ş±¾" << endl;
+	//}
+	//else
+	//{
+	//	cout << "¼ÌĞøÅ¬Á¦" << endl;
+	//}
+
+
+
+	////Ç¶Ì×ifÓï¾ä
+	//int score = 0;
+	//cin >> score;
+	//if (score > 600)
+	//{
+	//	cout << "Ò»±¾" << endl;
+	//	if (score > 700)
+	//	{
+	//		cout << "±±´ó" << endl;
+	//	}
+	//	else if (score > 650)
+	//	{
+	//		cout << "Çå»ª" << endl;
+	//	}
+	//	else
+	//	{
+	//		cout << "ÈË´ó" << endl;
+	//	}
+	//}
+	//else if (score > 500)
+	//{
+	//	cout << "¶ş±¾" << endl;
+	//}
+	//else
+	//{
+	//	cout << "¼ÌĞøÅ¬Á¦" << endl;
+	//}
+
+
+
+	//	//ÈıÖ»Ğ¡Öí³ÆÌåÖØ
+//	int a = 0, b = 0, c = 0;
+//
+//	cout << "aĞ¡ÖíÖØÁ¿£º" ;
+//		cout << "bĞ¡ÖíÖØÁ¿£º" ;
+//	cin >> b;
+//cin >> a;
+//
+//
+//	cout << "cĞ¡ÖíÖØÁ¿£º" ;
+//	cin >> c;
+//
+//	if (a > b)
+//	{
+//		if (a > c)
+//		{
+//			cout << "aÖí×îÖØ" << endl;
+//		}
+//		else
+//		{
+//			cout << "cÖí×îÖØ" << endl;
+//		}
+//	}
+//	else
+//	{
+//		if (b > c)
+//		{
+//			cout << "bÖí×îÖØ" << endl;
+//		}
+//		else
+//		{
+//			cout << "cÖí×îÖØ" << endl;
+//		}
+//	}
+
+
+
+	//ÈıÄ¿ÔËËã·û
+	int a = 10, b = 20, c = 0;
+	c = (a > b ? a : b);
+	cout << c << endl;
+	//c++ÖĞÈıÄ¿ÔËËã·ûÎª±äÁ¿£¬¿ÉÒÔ¼ÌĞø¸³Öµ
+	a > b ? a : b = 120;
 	cout << b << endl;
-
-
-
-	//ÔËËã·û
-
-
-
-	//Ñ¡Ôñ½á¹¹
-	int score = 0;
-	cout << "ÊäÈë·ÖÊı:";
-	cin >> score;
-	if (score > 600)       //ºóÃæ²»Òª¼Ó·ÖºÅ
-	{
-		cout << "¿¼ÉÏÒ»±¾" << endl;
-	}
-	else if (score > 500)
-	{
-		cout <<"¿¼ÉÏ¶ş±¾" << endl;
-	}
-	else
-	{
-		cout << "¼ÌĞøÅ¬Á¦" << endl;
-	}
 
 
 
