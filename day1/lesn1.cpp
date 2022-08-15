@@ -4,6 +4,8 @@
 #include<iostream>   //in  out   stream     输入输出流
 using namespace std;   //调用命名空间std内定义的所有标识符;标准库中的所有内容都放置在命名空间std中
 #include<string>
+#include<stdlib.h>
+#include<time.h>
 
 
 //#define Day 7
@@ -185,16 +187,90 @@ int main()
 
 
 
-	//三目运算符
-	int a = 10, b = 20, c = 0;
-	c = (a > b ? a : b);
-	cout << c << endl;
-	//c++中三目运算符为变量，可以继续赋值
-	a > b ? a : b = 120;
-	cout << b << endl;
+	////三目运算符
+	//int a = 10, b = 20, c = 0;
+	//c = (a > b ? a : b);
+	//cout << c << endl;
+	////c++中三目运算符为变量，可以继续赋值
+	//a > b ? a : b = 120;
+	//cout << b << endl;
 
 
-	//
+	////switch   case   break   default
+	////电影打分
+	//int score = 0;	
+	//cin >> score;
+	//switch(score)
+	//{
+	//case 10:
+	//	cout << "经典电影" << endl;
+	//	break;//退出选择或循环语句
+	//case 9:
+	//	cout << "经典电影" << endl;
+	//	break;
+	//case 8:
+	//	cout << "好电影" << endl;
+	//	break;
+	//case 7:
+	//	cout << "好电影" << endl;
+	//	break;
+	//case 6:
+	//	cout << "一般电影" << endl;
+	//	break;
+	//case 5:
+	//	cout << "一般电影" << endl;
+	//	break;
+	//default:
+	//	cout << "烂片" << endl;
+	//	break;
+	//}
+	////switch结构清晰，效率高；判断条件不可以是一个区间
+
+
+
+	//while循环
+	/*int a = 0;
+	while (a < 10)
+	{
+		cout << a << endl;
+		a++;
+	}*/
+	////猜数字
+	//srand((unsigned int)time(NULL));
+	//int a = rand() % 100 + 1;//生成1--100随机数
+	////cout << a << endl;
+	//int b = 0;
+	//while (a)
+	//{
+	//	cin >> b;
+	//	if (a > b)
+	//	{
+	//		cout << "猜小了" << endl;
+	//	}
+	//	else if (a < b)
+	//	{
+	//		cout << "猜大了" << endl;
+	//	}
+	//	else
+	//	{
+	//		cout << "猜对了" << endl;
+	//		break;//跳出循环
+	//	}
+	//}
+	
+
+
+
+	//do  while循环语句
+	int a = 0;
+	do
+	{
+		cout << a << endl;
+		a++;
+	} while (a<10);
+
+
+
 
 
 
