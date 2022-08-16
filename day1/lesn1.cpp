@@ -261,14 +261,43 @@ int main()
 
 
 
-	//do  while—≠ª∑”Ôæ‰
-	int a = 0;
-	do
-	{
-		cout << a << endl;
-		a++;
-	} while (a<10);
+	////do  while—≠ª∑”Ôæ‰
+	//int a = 0;
+	//do
+	//{
+	//	cout << a << endl;
+	//	a++;
+	//} while (a<10);
 
+
+	////for—≠ª∑
+	////for (int i = 0; i < 10; i++)
+	////{
+	////	cout << i << endl;
+	////}
+
+	//«√◊¿◊”
+	/*for (int i = 1; i <= 100; i++)
+	{
+		if (i%7==0||i%10==7||i/10==7)
+		{
+			cout << "«√◊¿◊”" << endl;
+		}
+		else
+		{
+			cout << i << endl;
+		}
+	}*/
+
+	    //¥Ú”°–«Õº
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			cout << "* ";
+		}
+			cout << endl;
+	}
 
 
 
