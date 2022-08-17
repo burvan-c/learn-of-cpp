@@ -289,16 +289,98 @@ int main()
 		}
 	}*/
 
-	    //打印星图
-	for (int i = 0; i < 10; i++)
+	//    //打印星图
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	for (int j = 0; j < 10; j++)
+	//	{
+	//		cout << "* ";
+	//	}
+	//		cout << endl;
+	//}
+
+
+
+	////乘法口诀表
+	//for (int i = 1; i <= 9; i++)
+	//{
+	//	for (int j = 1; j <= i; j++)
+	//	{
+	//		cout << j << "*" << i << "=" << j * i<<"\t";
+	//	}
+	//	cout << endl;
+	//}
+
+
+	////跳转语句--break  跳出case或者循环语句
+	//cout << "选择副本难度" << endl << "1.普通" << "\t" << "2.中等" << "\t" << "3.困难" << "\n";
+	//int select = 0;
+	//cin >> select;
+	//switch (select)
+	//{
+	//case 1:
+	//	cout << "进入普通副本" << endl;
+	//	break;
+	//case 2:
+	//	cout << "进入中等副本" << endl;
+	//	break;
+	//case 3:
+	//	cout << "进入困难副本" << endl;
+	//	break;
+	//default:
+	//	break;
+	//}
+
+
+
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	if (5 == i)
+	//	{
+	//		break;//跳出循环
+	//	}
+	//	cout << i <<" ";
+	//}
+
+	//cout << endl;
+
+	//for (int i = 0; i < 10; i++)//行
+	//{
+	//	for (int j = 0; j < 10; j++)//列
+	//	{
+	//		if (j == 5)
+	//		{
+	//			break;
+	//		}
+	//		cout << "* ";
+	//	}
+	//	cout << endl;
+	//}
+
+
+	////continue--执行到本行就不再执行后面代码，去执行下一次循环
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	if (5 == i)
+	//	{
+	//		continue; 
+	//	}
+	//	cout << i << " ";
+	//}
+
+
+	for (int i = 0; i <= 100; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		//奇数输出，偶数不输出
+		if (i % 2 == 0)
 		{
-			cout << "* ";
+			continue;
 		}
-			cout << endl;
+		cout << i << endl;
 	}
 
+
+	//goto语句
 
 
 
