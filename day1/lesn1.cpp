@@ -369,20 +369,72 @@ int main()
 	//}
 
 
-	for (int i = 0; i <= 100; i++)
+	//for (int i = 0; i <= 100; i++)
+	//{
+	//	//奇数输出，偶数不输出
+	//	if (i % 2 == 0)
+	//	{
+	//		continue;
+	//	}
+	//	cout << i << endl;
+	//}
+
+
+	//goto语句---无条件跳转语句
+
+
+
+	////数组
+	//int arr[3] = { 100,200,300 };
+	//int max = 0;
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	if (arr[i] > max)
+	//	{
+	//		max = arr[i];
+	//	}
+	//}
+	//cout << max << endl;
+
+
+
+	/*int arr[] = { 1,2,3,4,5 };
+	int start = 0;
+	int end = sizeof(arr) / sizeof(arr[0]) - 1;
+
+	while (start < end)
 	{
-		//奇数输出，偶数不输出
-		if (i % 2 == 0)
-		{
-			continue;
-		}
-		cout << i << endl;
+		int tmp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = tmp;
+		start++;
+		end--;
 	}
+	
+	for (int i = 0; i < 5; i++)
+	{
+		cout << arr[i] << endl;
+	}*/
 
 
-	//goto语句
 
-
+	int arr[] = { 4,2,8,0,5,7,1,3,9 };
+	for (int i = 0; i < 9 - 1; i++)
+	{
+		for (int j = 0; j < 9 - i - 1; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				int tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+			}
+		}
+	}
+	for (int i = 0; i < 9; i++)
+	{
+		cout << arr[i] << endl;
+	}
 
 
 	system("pause");
