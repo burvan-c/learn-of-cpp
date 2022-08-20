@@ -418,7 +418,7 @@ int main()
 
 
 
-	int arr[] = { 4,2,8,0,5,7,1,3,9 };
+	/*int arr[] = { 4,2,8,0,5,7,1,3,9 };
 	for (int i = 0; i < 9 - 1; i++)
 	{
 		for (int j = 0; j < 9 - i - 1; j++)
@@ -434,7 +434,27 @@ int main()
 	for (int i = 0; i < 9; i++)
 	{
 		cout << arr[i] << endl;
+	}*/
+
+
+
+	//成绩系统
+	int scores[3][3] = { {100,100,100,},{90,50,100},{60,70,80} };
+	for (int i = 0; i < 3; i++)
+	{
+		int sum = 0;
+		for (int j = 0; j < 3; j++)
+		{
+			sum += scores[i][j];
+			cout << scores[i][j] << "\t";
+		}
+		cout << "总分为："<<sum << endl;
 	}
+
+
+
+	//函数
+	//值传递--实参值传递给形参值，实参的值不发生改变，调用完成后形参被销毁
 
 
 	system("pause");
