@@ -1,2 +1,3 @@
-﻿  lesn1.cpp
+﻿  lesn2.cpp
+D:\learn-of-cpp\day1\lesn2.cpp(3,9): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
   day1.vcxproj -> D:\learn-of-cpp\day1\x64\Debug\day1.exe

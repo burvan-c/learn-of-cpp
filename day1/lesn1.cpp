@@ -1,16 +1,16 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-#pragma once
-
-#include<iostream>   //in  out   stream     输入输出流
-using namespace std;   //调用命名空间std内定义的所有标识符;标准库中的所有内容都放置在命名空间std中
-#include<string>
-#include<stdlib.h>
-#include<time.h>
+//#define _CRT_SECURE_NO_WARNINGS 1
+//#pragma once
+//
+//#include<iostream>   //in  out   stream     输入输出流
+//using namespace std;   //调用命名空间std内定义的所有标识符;标准库中的所有内容都放置在命名空间std中
+//#include<string>
+//#include<stdlib.h>
+//#include<time.h>
 
 
 //#define Day 7
-int main()
-{
+//int main()
+//{
 	//cout << "hello world" << endl;
 	////endl--标准库输入输出换行
 
@@ -438,18 +438,18 @@ int main()
 
 
 
-	//成绩系统
-	int scores[3][3] = { {100,100,100,},{90,50,100},{60,70,80} };
-	for (int i = 0; i < 3; i++)
-	{
-		int sum = 0;
-		for (int j = 0; j < 3; j++)
-		{
-			sum += scores[i][j];
-			cout << scores[i][j] << "\t";
-		}
-		cout << "总分为："<<sum << endl;
-	}
+	////成绩系统
+	//int scores[3][3] = { {100,100,100,},{90,50,100},{60,70,80} };
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	int sum = 0;
+	//	for (int j = 0; j < 3; j++)
+	//	{
+	//		sum += scores[i][j];
+	//		cout << scores[i][j] << "\t";
+	//	}
+	//	cout << "总分为："<<sum << endl;
+	//}
 
 
 
@@ -465,19 +465,25 @@ int main()
 
 
 
-	//指针与数组
-	int arr[10] = { 0,1,2,3,4,5,6,7,8,9, };
-	int* p = arr;//arr为首元素地址
-	for (int i = 0; i <= 9; i++)
-	{
-		cout << *(p + i) << endl;
-	}
+	////指针与数组
+	//int arr[10] = { 0,1,2,3,4,5,6,7,8,9, };
+	//int* p = arr;//arr为首元素地址
+	//for (int i = 0; i <= 9; i++)
+	//{
+	//	cout << *(p + i) << endl;
+	//}
 
 
 
-	system("pause");
+	//指针与函数：值传递（不改变实参）   地址传递（改变实参）
+
+
+
+
+
+	/*system("pause");*/
 	//在进行C/C++编程的时候，在运行程序查看输出效果时，会出现窗口闪一下就关闭的情况
 	//在C++中一般在main函数中的return之前添加system("pause");这样就可以看清楚输出的结果
 
-	return 0;
-}
+//	return 0;
+//}
