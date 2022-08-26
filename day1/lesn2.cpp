@@ -68,4 +68,75 @@ using namespace std;
 
 
 
-//结构体指针
+////结构体指针
+//struct stu
+//{
+//	string name;
+//	int age;
+//	int score;
+//};
+//int main()
+//{
+//	struct stu s1={"张三",18,100};
+//	stu* p = &s1;
+//	cout << p->name << '\t' << p->age << "\t" << p->score << endl;
+//	//用箭头访问指针成员
+//	system("pause");
+//	return 0;
+//}
+
+
+
+////嵌套结构体
+//struct stu
+//{
+//	string name;
+//	int age;
+//	int score;
+//};
+//struct tea
+//{
+//	int id;
+//	string name;
+//	int age;
+//	struct stu s1;
+//};
+//
+//int main()
+//{
+//	tea t;
+//	t.age = 200;
+//	t.id = 123456;
+//	t.name = "大傻";
+//	t.s1.age = 10;
+//	t.s1.name= "二傻";
+//	t.s1.score = 100;
+//	cout << t.age << "\t" << t.id << "\t" << t.name << endl << t.s1.age << "\t" << t.s1.name << "\t" << t.s1.score << endl;
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//结构体函数
+struct stu
+{
+	string name;
+	int age;
+	int score;
+};
+void printstudent(struct stu*ps)//加上const后就不可更改了
+{
+	ps->name = "李四";
+	cout << ps->name << "\t" << ps->age << "\t" << ps->score << endl;
+}
+//函数若采用值传递,调用函数改变name age score时,主函数s1不变（在不同的存储区域内）
+//函数若采用地址传递，调用函数改变name age score时主函数也会变化
+int main()
+{
+	struct stu s1 = { "张三",18,100 };
+	printstudent(&s1);
+	cout << s1.name << "\t" << s1.age << "\t" << s1.score << endl;
+	system("pause");
+	return 0;
+}
