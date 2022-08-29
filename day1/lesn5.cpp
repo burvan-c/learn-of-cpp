@@ -28,7 +28,11 @@ struct Addressbooks
 };
 void addPerson(Addressbooks* abs)
 {
-
+	//判断通讯录是否已满
+	if (abs->m_size == MAX)
+	{
+		cout << "通讯录已满，无法添加！" << endl;
+	}
 }
 //菜单
 void showMenu()
