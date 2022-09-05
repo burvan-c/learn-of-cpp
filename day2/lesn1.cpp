@@ -1,8 +1,8 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-#pragma once
-
-#include<iostream>
-using namespace std;
+//#define _CRT_SECURE_NO_WARNINGS 1
+//#pragma once
+//
+//#include<iostream>
+//using namespace std;
 
 ////new操作符--开辟堆区数据，用delete操作符释放
 //int* func()
@@ -239,33 +239,33 @@ using namespace std;
 
 //函数重载注意事项
 //1.引用作为重载条件
-void func(int &a)
-{
-	cout << "func(int &a)的调用" << endl;
-}
-void func(const int& a)
-{
-	cout << "func(const int &a)的调用" << endl;
-}
+//void func(int &a)
+//{
+//	cout << "func(int &a)的调用" << endl;
+//}
+//void func(const int& a)
+//{
+//	cout << "func(const int &a)的调用" << endl;
+//}
 
-//函数重载遇到默认参数
-void func2(int a)
-{
-	cout << "func2(int a)的调用" << endl;
-}
-void func2(int a,int b=10)
-{
-	cout << "func2(int a,int b)的调用" << endl;
-}
-int main()
-{
-	func(10);//10为常量
-	int a = 11;
-	func(a);//a为变量
-
-	//func2(a);//此时函数重载遇到默认参数，出现二义性
-
-
-	system("pause");
-	return 0;
-}
+////函数重载遇到默认参数
+//void func2(int a)
+//{
+//	cout << "func2(int a)的调用" << endl;
+//}
+//void func2(int a,int b=10)
+//{
+//	cout << "func2(int a,int b)的调用" << endl;
+//}
+//int main()
+//{
+//	func(10);//10为常量
+//	int a = 11;
+//	func(a);//a为变量
+//
+//	//func2(a);//此时函数重载遇到默认参数，出现二义性
+//
+//
+//	system("pause");
+//	return 0;
+//}
