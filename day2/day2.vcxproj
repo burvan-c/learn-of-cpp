@@ -127,8 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="case2.cpp" />
+    <ClCompile Include="case_1.cpp" />
     <ClCompile Include="lesn1.cpp" />
     <ClCompile Include="lesn2.cpp" />
+    <ClCompile Include="lesn3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
