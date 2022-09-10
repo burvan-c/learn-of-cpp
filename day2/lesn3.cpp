@@ -18,8 +18,8 @@
 //          销毁对象时会自动调用，仅一次
 
 
-#include<iostream>
-using namespace std;
+//#include<iostream>
+//using namespace std;
 
 //构造函数
 
@@ -130,69 +130,69 @@ using namespace std;
 //2.值传递的方式给函数传参
 //3.值方式返回局部对象
 
-class Person
-{
-public:
-	Person()
-	{
-		cout << "Person默认构造函数调用" << endl;
-	}
-	Person(int age)
-	{
-		m_age = age;
-		cout << "Person有参构造函数调用" << endl;
-	}
-	Person(const Person& p)
-	{
-		m_age = p.m_age;
-		cout << "Person拷贝构造函数调用" << endl;
-	}
-
-	~Person()
-	{
-		cout << "Person析构函数调用" << endl;
-	}
-
-	int m_age;
-};
-
-//1.使用一个已经创建完毕的对象来初始化一个新对象
-void test01()
-{
-	Person p1(20);
-	Person p2(p1);
-	cout << "p2的年龄：" << p2.m_age << endl;
-}
-
-//2.值传递的方式给函数传参
-void dowork(Person p)//实参传给形参时会调用拷贝构造函数
-{
-
-}
-void test02()
-{
-	Person p;//调用默认构造函数
-	dowork(p);
-}
-
-//3.值方式返回局部对象
-Person dowork2()
-{
-	Person p1;//这里调用了默认构造函数
-	return p1;//以值的方式返回，按照p1拷贝新的对象返回给test03()
-}
-void test03()
-{
-	Person p = dowork2();
-}
-int main()
-{
-	//test01();
-	//test02();
-	test03();
-	system("pause");
-	return 0;
-}
+//class Person
+//{
+//public:
+//	Person()
+//	{
+//		cout << "Person默认构造函数调用" << endl;
+//	}
+//	Person(int age)
+//	{
+//		m_age = age;
+//		cout << "Person有参构造函数调用" << endl;
+//	}
+//	Person(const Person& p)
+//	{
+//		m_age = p.m_age;
+//		cout << "Person拷贝构造函数调用" << endl;
+//	}
+//
+//	~Person()
+//	{
+//		cout << "Person析构函数调用" << endl;
+//	}
+//
+//	int m_age;
+//};
+//
+////1.使用一个已经创建完毕的对象来初始化一个新对象
+//void test01()
+//{
+//	Person p1(20);
+//	Person p2(p1);
+//	cout << "p2的年龄：" << p2.m_age << endl;
+//}
+//
+////2.值传递的方式给函数传参
+//void dowork(Person p)//实参传给形参时会调用拷贝构造函数
+//{
+//
+//}
+//void test02()
+//{
+//	Person p;//调用默认构造函数
+//	dowork(p);
+//}
+//
+////3.值方式返回局部对象
+//Person dowork2()
+//{
+//	Person p1;//这里调用了默认构造函数
+//	return p1;//以值的方式返回，按照p1拷贝新的对象返回给test03()
+//}
+//void test03()
+//{
+//	Person p = dowork2();
+//}
+//int main()
+//{
+//	//test01();
+//	//test02();
+//	test03();
+//	system("pause");
+//	return 0;
+//}
 
 
 //构造函数调用规则：
@@ -204,3 +204,104 @@ int main()
 //默认析构函数（无参，函数体为空）
 //默认拷贝构造函数，对属性进行值拷贝
 
+//class Person
+//{
+//public:
+//	Person()
+//	{
+//		cout << "Person的默认构造函数调用" << endl;
+//	}
+//	Person(int age)
+//	{
+//		cout << "Person的有参构造函数调用" << endl;
+//		m_age = age;
+//	}
+//	/*Person(const Person& p)
+//	{
+//		cout << "Person的拷贝构造函数调用" << endl;
+//		m_age = p.m_age;
+//	}*/
+//	~Person()
+//	{
+//		cout << "Person的析构函数调用" << endl;
+//	}
+//	int m_age;
+//};
+//void test01()
+//{
+//	Person p;
+//	p.m_age = 18;
+//
+//	Person p2(p);
+//
+//	cout << "p2的年龄：" << p2.m_age << endl;
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+
+
+//深拷贝与浅拷贝
+//深拷贝--在堆区重申空间，进行拷贝操作
+//浅拷贝--简单赋值拷贝操作
+
+//浅拷贝会导致堆区内存重复释放--利用深拷贝再申请一块空间可以解决这个问题
+
+//class Person
+//{
+//public:
+//	Person()
+//	{
+//		cout << "Person的默认构造函数调用" << endl;
+//	}
+//	Person(int age,int height)
+//	{
+//		cout << "Person的有参构造函数调用" << endl;
+//		m_age = age;
+//		m_height = new int(height);
+//	}
+//	Person(const Person& p)
+//	{
+//		cout << "Person的拷贝构造函数调用" << endl;
+//		m_age = p.m_age;
+//		//m_height = p.m_height;//编译器默认实现
+//		
+//		//深拷贝
+//		m_height = new int(*p.m_height);
+//	}
+//	~Person()
+//	{
+//		//利用析构代码，将堆区开辟数据释放掉
+//		if (m_height != NULL)
+//		{
+//			delete m_height;
+//			m_height = NULL;
+//		}
+//		cout << "Person的析构函数调用" << endl;
+//	}
+//	int m_age;
+//	int* m_height;
+//};
+//
+//void test01()
+//{
+//	Person p1(18,180);
+//	Person p2(p1);
+//
+//	cout << "p1的年龄：" << p1.m_age << "身高为：" << *p1.m_height << endl;
+//	cout << "p2的年龄：" << p2.m_age << "身高为：" << *p2.m_height << endl;
+//
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
