@@ -132,6 +132,7 @@
     <ClCompile Include="lesn1.cpp" />
     <ClCompile Include="lesn2.cpp" />
     <ClCompile Include="lesn3.cpp" />
+    <ClCompile Include="lesn4.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
