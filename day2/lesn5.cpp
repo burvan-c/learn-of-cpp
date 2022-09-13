@@ -4,6 +4,7 @@
 
 #include<iostream>
 using namespace std;
+#include<string>
 
 
 //对象模型、this指针
@@ -97,36 +98,120 @@ using namespace std;
 //空指针访问成员函数
 //c++空指针可以调用成员函数，要注意是否用到this指针
 
-class Person
+//class Person
+//{
+//public:
+//	void showClassName()
+//	{
+//		cout << "this is Person class" << endl;
+//	}
+//
+//	void showPersonAge()
+//	{
+//		/*if (NULL == this)
+//		{
+//			return;
+//		}*/
+//		cout << m_age << endl;//空指针无法访问类中的属性
+//		//这里m_age相当于this->age
+//	}
+//
+//	int m_age;
+//};
+//
+//void test01()
+//{
+//	Person* p = NULL;
+//
+//	p->showClassName();
+//
+//	//p->m_age = 10;//空指针无法访问类中的属性
+//	p->showPersonAge();
+//
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//const修饰成员函数
+//常函数、常对象
+
+////常函数
+//class Person
+//{
+//public:
+//	//this指针本质 是指针常量  指针的指向是不可以修改的
+//	void showPerson() const//这里const修饰this,即this指向的值不可修改
+//	{
+//		//this->m_a = 100;
+//		this->m_b = 100;
+//	}
+//
+//	void func()
+//	{
+//
+//	}
+//
+//	int m_a;
+//	mutable int m_b;//加上关键字mutable后，在常函数中就可以修改了
+//};
+//
+////常对象
+//void test01()
+//{
+//	const Person p;//在对象前加const,即为常对象
+//	//p.m_a = 100;//这里报错不可修改
+//	p.m_b = 100;//加上关键字mutable后，在常对象中就可以修改了
+//
+//	//常对象只能调用常函数
+//	p.showPerson();
+//	//p.func();//不可调用
+//}
+
+
+
+
+
+//友元--全局函数做友元、类做友元、成员函数做友元
+
+//全局函数做友元
+class Building
 {
+	//全局函数为友元，可以访问私有成员
+	friend void goodGay(Building* building);
 public:
-	void showClassName()
+	Building()
 	{
-		cout << "this is Person class" << endl;
+		m_sittingRoom = "客厅";
+		m_bedRoom = "卧室";
 	}
 
-	void showPersonAge()
-	{
-		/*if (NULL == this)
-		{
-			return;
-		}*/
-		cout << m_age << endl;//空指针无法访问类中的属性
-		//这里m_age相当于this->age
-	}
+public:
+	string m_sittingRoom;
 
-	int m_age;
+private:
+	string m_bedRoom;
 };
+
+//全局函数
+void goodGay(Building*building)
+{
+	cout << building->m_sittingRoom << endl;
+
+	cout << building->m_bedRoom << endl;
+
+}
 
 void test01()
 {
-	Person* p = NULL;
-
-	p->showClassName();
-
-	//p->m_age = 10;//空指针无法访问类中的属性
-	p->showPersonAge();
-
+	Building building;
+	goodGay(&building);
 }
 
 int main()
@@ -135,18 +220,3 @@ int main()
 	system("pause");
 	return 0;
 }
-
-
-
-//const修饰成员函数
-//常函数、常对象
-class Person
-{
-public:
-	void showPerson()
-	{
-		m_a = 100;
-	}
-
-	int m_a;
-};
