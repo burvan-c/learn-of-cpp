@@ -180,40 +180,245 @@ using namespace std;
 
 //友元--全局函数做友元、类做友元、成员函数做友元
 
-//全局函数做友元
-class Building
+////全局函数做友元
+//class Building
+//{
+//	//全局函数为友元，可以访问私有成员
+//	friend void goodGay(Building* building);
+//public:
+//	Building()
+//	{
+//		m_sittingRoom = "客厅";
+//		m_bedRoom = "卧室";
+//	}
+//
+//public:
+//	string m_sittingRoom;
+//
+//private:
+//	string m_bedRoom;
+//};
+//
+////全局函数
+//void goodGay(Building*building)
+//{
+//	cout << building->m_sittingRoom << endl;
+//
+//	cout << building->m_bedRoom << endl;
+//
+//}
+//
+//void test01()
+//{
+//	Building building;
+//	goodGay(&building);
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+//类做友元
+//class Building;
+//class GoodGay
+//{
+//public:
+//	GoodGay();
+//	void visit();//参观函数，访问Building中的属性
+//	Building* building;
+//};
+//
+//class Building
+//{
+//	friend class GoodGay;//类做友元，可以访问private
+//public:
+//	Building();
+//public:
+//	string m_sittingroom;
+//private:
+//	string m_bedroom;
+//};
+//
+////类外写成员函数
+//Building::Building()//类::成员函数
+//{
+//	m_sittingroom = "客厅";
+//	m_bedroom = "卧室";
+//}
+//GoodGay::GoodGay()
+//{
+//	//创造建筑物对象
+//	building = new Building;
+//}
+//void GoodGay::visit()
+//{
+//	cout << building->m_sittingroom << endl;
+//	cout << building->m_bedroom << endl;
+//}
+//
+//void test01()
+//{
+//	GoodGay gg;
+//	gg.visit();
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+//成员函数做友元
+//class Building;
+//class GoodGay
+//{
+//public:
+//	GoodGay();
+//	void visit();//让visit可以访问Building中的私有函数
+//	void visit2();//让visit不可以访问Building中的私有函数
+//	Building* building;
+//};
+//class Building
+//{
+//	friend void GoodGay::visit();
+//public:
+//	Building();
+//public:
+//	string m_sittingroom;
+//private:
+//	string m_bedroom;
+//};
+////类外写成员函数
+//Building::Building()//类::成员函数
+//{
+//	m_sittingroom = "客厅";
+//	m_bedroom = "卧室";
+//}
+//GoodGay::GoodGay()
+//{
+//	//创造建筑物对象
+//	building = new Building;
+//}
+//void GoodGay::visit()
+//{
+//	cout << "visit访问" << building->m_sittingroom << endl;
+//	cout << "visit访问" << building->m_bedroom << endl;
+//}
+//void GoodGay::visit2()
+//{
+//	cout << "visit2访问" << building->m_sittingroom << endl;
+//	//cout << "visit2访问" << building->m_bedroom << endl;//visit2非友元，不可访问private
+//}
+//void test01()
+//{
+//	GoodGay gg;
+//	gg.visit();
+//	gg.visit2();
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+
+//运算符重载：对已有的运算符重新定义，赋予另一种功能，以适应不同数据类型
+
+//加法运算符重载--两自定义数据类型相加运算
+
+//class Person
+//{
+//public:
+//	//1.成员函数重载+号 
+//	
+//	//Person operator+(Person& p)//c++重载操作符--operator
+//	//{
+//	//	Person tmp;
+//	//	tmp.m_a = this->m_a + p.m_a;
+//	//	tmp.m_b = this->m_b + p.m_b;
+//	//	return tmp;
+//	//}
+//
+//	int m_a;
+//	int m_b;
+//};
+//
+////2.全局函数重载+号
+//
+//Person operator+(Person& p1, Person& p2)
+//{
+//		Person tmp;
+//		tmp.m_a = p1.m_a + p2.m_a;
+//		tmp.m_b = p1.m_b + p2.m_b;
+//		return tmp;
+//}
+//
+//void test01()
+//{
+//	Person p1;
+//	p1.m_a = 10;
+//	p1.m_b = 20;
+//	Person p2;
+//	p2.m_a = 30;
+//	p2.m_b = 40;
+//
+//	//Person p3 = p1 + p2;//这里是 Person p3=p1.operator+(p2) 的缩写***********************
+//
+//	Person p3 = p1 + p2;//这里是 Person p3= operator+(p1，p2) 的缩写***********************
+//	//运算符重载也可以发生函数重载即operator+后面的参数类型可以不同，做到灵活运用
+//
+//
+//	cout << "p3.m_a= " << p3.m_a << endl;
+//	cout << "p3.m_b= " << p3.m_b << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//左移运算符重载--输出自定义类型
+
+class Person
 {
-	//全局函数为友元，可以访问私有成员
-	friend void goodGay(Building* building);
+	 
 public:
-	Building()
-	{
-		m_sittingRoom = "客厅";
-		m_bedRoom = "卧室";
-	}
 
-public:
-	string m_sittingRoom;
-
-private:
-	string m_bedRoom;
+	//通常不会利用成员函数重载 左移运算符，因为无法实现cout在左侧
+	//void operator<<(cout)---简化为p<<cout
+	int m_a;
+	int m_b;
 };
 
-//全局函数
-void goodGay(Building*building)
+//只能用全局函数重载左移运算符
+ostream & operator<<(ostream &cout, Person &p)//简化为cout<<p
 {
-	cout << building->m_sittingRoom << endl;
-
-	cout << building->m_bedRoom << endl;
-
+	cout << "m_a= " << p.m_a << endl << "m_b= " << p.m_b;
+	return cout;
 }
 
 void test01()
 {
-	Building building;
-	goodGay(&building);
-}
+	Person p;
+	p.m_a = 10;
+	p.m_b = 10;
 
+	cout << p<<endl;
+}
 int main()
 {
 	test01();
