@@ -393,35 +393,35 @@ using namespace std;
 
 //左移运算符重载--输出自定义类型
 
-class Person
-{
-	 
-public:
-
-	//通常不会利用成员函数重载 左移运算符，因为无法实现cout在左侧
-	//void operator<<(cout)---简化为p<<cout
-	int m_a;
-	int m_b;
-};
-
-//只能用全局函数重载左移运算符
-ostream & operator<<(ostream &cout, Person &p)//简化为cout<<p
-{
-	cout << "m_a= " << p.m_a << endl << "m_b= " << p.m_b;
-	return cout;
-}
-
-void test01()
-{
-	Person p;
-	p.m_a = 10;
-	p.m_b = 10;
-
-	cout << p<<endl;
-}
-int main()
-{
-	test01();
-	system("pause");
-	return 0;
-}
+//class Person
+//{
+//	 
+//public:
+//
+//	//通常不会利用成员函数重载 左移运算符，因为无法实现cout在左侧
+//	//void operator<<(cout)---简化为p<<cout
+//	int m_a;
+//	int m_b;
+//};
+//
+////只能用全局函数重载左移运算符
+//ostream & operator<<(ostream &cout, Person &p)//简化为cout<<p
+//{
+//	cout << "m_a= " << p.m_a << endl << "m_b= " << p.m_b;
+//	return cout;
+//}
+//
+//void test01()
+//{
+//	Person p;
+//	p.m_a = 10;
+//	p.m_b = 10;
+//
+//	cout << p<<endl;
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
