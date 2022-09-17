@@ -36,5 +36,8 @@
     <ClCompile Include="lesn5.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
+    <ClCompile Include="lesn6.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
