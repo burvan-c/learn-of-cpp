@@ -253,3 +253,44 @@ using namespace std;
 
 
 //继承中的对象模型
+
+class base
+{
+public:
+	int m_a;
+protected:
+	int m_b;
+private:
+	int m_c;
+};
+class son :public base
+{
+public:
+	int m_d;
+};
+
+void test01()
+{
+	//父类中非静态成员属性都会被子类继承
+	//私有属性被隐藏无法访问
+	cout << sizeof(son) << endl;//16
+}
+int main()
+{
+	test01();
+	system("pause");
+	return 0;
+}
+
+
+
+//继承中构造与析构顺序
+
+class base
+{
+public:
+	base()
+	{
+		cout << "base构造函数" << endl;
+	}
+};
