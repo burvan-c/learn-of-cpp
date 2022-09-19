@@ -254,43 +254,141 @@ using namespace std;
 
 //继承中的对象模型
 
-class base
-{
-public:
-	int m_a;
-protected:
-	int m_b;
-private:
-	int m_c;
-};
-class son :public base
-{
-public:
-	int m_d;
-};
-
-void test01()
-{
-	//父类中非静态成员属性都会被子类继承
-	//私有属性被隐藏无法访问
-	cout << sizeof(son) << endl;//16
-}
-int main()
-{
-	test01();
-	system("pause");
-	return 0;
-}
+//class base
+//{
+//public:
+//	int m_a;
+//protected:
+//	int m_b;
+//private:
+//	int m_c;
+//};
+//class son :public base
+//{
+//public:
+//	int m_d;
+//};
+//
+//void test01()
+//{
+//	//父类中非静态成员属性都会被子类继承
+//	//私有属性被隐藏无法访问
+//	cout << sizeof(son) << endl;//16
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
 
 
 
 //继承中构造与析构顺序
 
-class base
-{
-public:
-	base()
-	{
-		cout << "base构造函数" << endl;
-	}
-};
+//class base
+//{
+//public:
+//	base()
+//	{
+//		cout << "base构造函数" << endl;
+//	}
+//	~base()
+//	{
+//		cout << "base析构函数" << endl;
+//	}
+//};
+//
+//class son :public base
+//{
+//public:
+//	son()
+//	{
+//		cout << "son构造函数" << endl;
+//	}
+//	~son()
+//	{
+//		cout << "son析构函数" << endl;
+//	}
+//};
+//
+//void test01()
+//{
+//	//base b;
+//	//先构造父类，后构造子类；析构与其相反
+//	son s;
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//继承同名成员处理方式--子类与父类同名
+//直接访问子类同名成员；访问父类需加作用域
+
+//class base
+//{
+//public:
+//	base()
+//	{
+//		m_a = 20;
+//	}
+//	void func()
+//	{
+//		cout << "base->func调用" << endl;
+//	}
+//	void func(int a)
+//	{
+//		cout << "son->func(int a)调用" << endl;
+//	}
+//	int m_a;
+//	int m_a;
+//};
+//class son :public base
+//{
+//public:
+//	son()
+//	{
+//		m_a = 30;
+//	}
+//	void func()
+//	{
+//		cout << "son->func调用" << endl;
+//	}
+//	
+//};
+//void test01()
+//{
+//	son s;
+//	cout << s.m_a << endl;//子类直接访问
+//
+//	cout << s.base::m_a << endl;//同名时父类要加上作用域
+//}
+//void test02()
+//{
+//	son s;
+//	s.func();//子类直接访问
+//
+//	s.base::func();//同名时父类要加上作用域
+//
+//	//s.func(100);//这里子类会隐藏所有父类的同名函数
+//	s.base::func(100);
+//}
+//int main()
+//{
+//	//test01();
+//	test02();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//继承 同名静态成员处理方式
+//直接访问子类同名成员；访问父类需加作用域
+
