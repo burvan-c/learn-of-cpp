@@ -392,3 +392,199 @@ using namespace std;
 //继承 同名静态成员处理方式
 //直接访问子类同名成员；访问父类需加作用域
 
+//class base
+//{
+//public:
+//	static int m_a;//类内申明，类外初始化
+//	static void func()
+//	{
+//		cout << "base-static void func()" << endl;
+//	}
+//};
+//int base::m_a = 20;
+//
+//class son:public base
+//{
+//public:
+//	static int m_a;
+//	static void func()
+//	{
+//		cout << "son-static void func()" << endl;
+//	}
+//};
+//int son::m_a = 300;
+//
+////同名静态成员属性
+//void test01()
+//{
+//	son s;
+//	//通过对象访问
+//	cout << s.m_a << endl;
+//	cout << s.base::m_a << endl;
+//
+//	//通过类名访问
+//	cout << son::m_a << endl;
+//	cout << son::base::m_a << endl;
+//}
+//
+////同名静态成员函数
+//void test02()
+//{
+//	son s;
+//	//通过对象访问
+//	s.func();
+//	s.base::func();
+//
+//	//通过类名访问
+//	son::func();
+//	son::base::func();
+//}
+//int main()
+//{
+//	//test01();
+//	test02();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//多继承语法--允许一个类继承多个类
+//class 子类：继承方式 父类1，继承方式 父类2……
+//父类有同名时需加作用域
+
+//class base1
+//{
+//public:
+//	base1()
+//	{
+//		m_a = 20;
+//	}
+//	int m_a;
+//};
+//class base2
+//{
+//public:
+//	base2()
+//	{
+//		m_a = 60;
+//	}
+//	int m_a;
+//};
+//class son :public base1, public base2
+//{
+//public:
+//	son()
+//	{
+//		m_c = 30;
+//		m_d = 40;
+//	}
+//	int m_c;
+//	int m_d;
+//};
+//void test01()
+//{
+//	son s;
+//	cout << sizeof(s) << endl;
+//	cout << s.base1::m_a << endl;
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+//菱形继承--同一个基类继承给两个派生类，再继承给另一个类
+
+//class animal
+//{
+//public:
+//	int m_a;
+//};
+////虚继承解决问题
+//class sheep :virtual public animal//此时animal为虚基类
+//{};
+//class tuo:virtual public animal
+//{};
+//class sheeptuo :public sheep, public tuo
+//{};
+//void test01()
+//{
+//	sheeptuo st;
+//	st.sheep::m_a = 18;
+//	st.tuo::m_a = 20;
+//	cout << st.sheep::m_a << endl;
+//	cout << st.tuo::m_a << endl;
+//	//菱形继承会导致资源浪费，可利用虚继承解决
+//	cout << st.m_a << endl;
+//	//虚继承后相当于共用一个数据
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+
+
+
+
+//多态
+//静态多态（函数重载、运算符重载）
+//动态多态
+
+//动态多态满足条件：
+//1.有继承关系
+//2.子类重写父类的虚函数（重写：函数返回值类型 函数名 参数 完全相同）
+
+//动态多态使用
+//1.父类的指针或引用 执行子类对象
+
+class animal
+{
+public:
+	/*void speak()    //对应  地址早绑定
+	{
+		cout << "动物说话" << endl;
+	}*/
+
+	//虚函数
+	virtual void speak()    //对应  地址晚绑定
+	{
+		cout << "动物说话" << endl;
+	}
+};
+
+class cat :public animal
+{
+public:
+	void speak()
+	{
+		cout << "喵喵" << endl;
+	}
+};
+
+//执行函数
+void dospeak(animal& animal)//animal&animal=cat c
+{    //这里地址早绑定，在编译阶段已确定函数地址，用animal类中的speak函数
+	animal.speak();
+}
+
+void test01()
+{
+	cat c;
+	dospeak(c);
+	//想要执行cat中的speak函数，必须地址晚绑定，在animal中执行virtual void speak()
+}
+
+int main()
+{
+	test01();
+	system("pause");
+	return 0;
+}
