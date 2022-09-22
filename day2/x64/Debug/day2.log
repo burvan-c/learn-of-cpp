@@ -1,2 +1,2 @@
 ﻿  lesn6.cpp
-  day2.vcxproj -> D:\learn-of-cpp\day2\x64\Debug\day2.exe
+D:\learn-of-cpp\day2\lesn6.cpp : fatal error C1041: 无法打开程序数据库“D:\learn-of-cpp\day2\x64\Debug\vc143.pdb”；如果要将多个 CL.EXE 写入同一个 .PDB 文件，请使用 /FS

@@ -545,46 +545,82 @@ using namespace std;
 //动态多态使用
 //1.父类的指针或引用 执行子类对象
 
-class animal
+//class animal
+//{
+//public:
+//	/*void speak()    //对应  地址早绑定
+//	{
+//		cout << "动物说话" << endl;
+//	}*/
+//
+//	//虚函数
+//
+//	virtual void speak()    //对应  地址晚绑定
+//	{
+//		cout << "动物说话" << endl;
+//	}
+//	//虚函数指针->虚函数表->记录虚函数地址
+//};
+//
+//class cat :public animal
+//{
+//public:
+//	 void speak()
+//	{
+//		cout << "喵喵" << endl;
+//	}
+//};
+//
+////执行函数
+//void dospeak(animal& animal)//animal&animal=cat c
+//{    //这里地址早绑定，在编译阶段已确定函数地址，用animal类中的speak函数
+//	animal.speak();
+//}
+//
+//void test01()
+//{
+//	cat c;
+//	dospeak(c);
+//	//想要执行cat中的speak函数，必须地址晚绑定，在animal中执行virtual void speak()
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+
+//多态案列--计算器类
+//普通写法、多态写法
+
+//普通写法
+class calculater
 {
 public:
-	/*void speak()    //对应  地址早绑定
+	int getresult(string oper)
 	{
-		cout << "动物说话" << endl;
-	}*/
-
-	//虚函数
-	virtual void speak()    //对应  地址晚绑定
-	{
-		cout << "动物说话" << endl;
+		if ("+" == oper)
+		{
+			return m_num1 + m_num2;
+		}
+		else if ("-" == oper)
+		{
+			return m_num1 - m_num2;
+		}
+		else if ("*" == oper)
+		{
+			return m_num1 * m_num2;
+		}
 	}
+
+	int m_num1;
+	int m_num2;
 };
-
-class cat :public animal
-{
-public:
-	void speak()
-	{
-		cout << "喵喵" << endl;
-	}
-};
-
-//执行函数
-void dospeak(animal& animal)//animal&animal=cat c
-{    //这里地址早绑定，在编译阶段已确定函数地址，用animal类中的speak函数
-	animal.speak();
-}
-
 void test01()
 {
-	cat c;
-	dospeak(c);
-	//想要执行cat中的speak函数，必须地址晚绑定，在animal中执行virtual void speak()
-}
 
-int main()
-{
-	test01();
-	system("pause");
-	return 0;
 }
