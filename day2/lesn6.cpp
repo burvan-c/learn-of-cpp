@@ -598,7 +598,7 @@ using namespace std;
 //普通写法、多态写法
 
 //普通写法
-class calculater
+class calculator
 {
 public:
 	int getresult(string oper)
@@ -622,5 +622,17 @@ public:
 };
 void test01()
 {
+	calculator c;
+	c.m_num1 = 10;
+	c.m_num2 = 20;
 
+	cout << c.getresult("+") << endl;
+	cout << c.getresult("-") << endl;
+	cout << c.getresult("*") << endl;
+}
+int main()
+{
+	test01();
+	system("pause");
+	return 0;
 }
