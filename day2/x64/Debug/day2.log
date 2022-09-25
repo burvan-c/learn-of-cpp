@@ -1,3 +1,2 @@
 ﻿  lesn6.cpp
-D:\learn-of-cpp\day2\lesn6.cpp(618): warning C4715: “calculator::getresult”: 不是所有的控件路径都返回值
   day2.vcxproj -> D:\learn-of-cpp\day2\x64\Debug\day2.exe

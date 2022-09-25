@@ -598,41 +598,253 @@ using namespace std;
 //普通写法、多态写法
 
 //普通写法
-class calculator
-{
-public:
-	int getresult(string oper)
-	{
-		if ("+" == oper)
-		{
-			return m_num1 + m_num2;
-		}
-		else if ("-" == oper)
-		{
-			return m_num1 - m_num2;
-		}
-		else if ("*" == oper)
-		{
-			return m_num1 * m_num2;
-		}
-	}
+//class calculator
+//{
+//public:
+//	int getresult(string oper)
+//	{
+//		if ("+" == oper)
+//		{
+//			return m_num1 + m_num2;
+//		}
+//		else if ("-" == oper)
+//		{
+//			return m_num1 - m_num2;
+//		}
+//		else if ("*" == oper)
+//		{
+//			return m_num1 * m_num2;
+//		}
+//	}
+//
+//	int m_num1;
+//	int m_num2;
+//};
+//void test01()
+//{
+//	calculator c;
+//	c.m_num1 = 10;
+//	c.m_num2 = 20;
+//
+//	cout << c.getresult("+") << endl;
+//	cout << c.getresult("-") << endl;
+//	cout << c.getresult("*") << endl;
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
 
-	int m_num1;
-	int m_num2;
-};
-void test01()
-{
-	calculator c;
-	c.m_num1 = 10;
-	c.m_num2 = 20;
 
-	cout << c.getresult("+") << endl;
-	cout << c.getresult("-") << endl;
-	cout << c.getresult("*") << endl;
-}
-int main()
-{
-	test01();
-	system("pause");
-	return 0;
-}
+//利用多态实现计算器--组织清晰、可读性强、易于维护
+
+//实现计算器抽象类
+//class abstractcalculator
+//{
+//public:
+//	virtual int getresult()
+//	{
+//		return 0;
+//	}
+//	int m_num1;
+//	int m_num2;
+//};
+//
+////加法计算器类
+//class addcalculator :public abstractcalculator
+//{
+//public:
+//	int getresult()//virtual关键字可写可不写
+//	{
+//		return m_num1+m_num2;
+//	}
+//};
+//
+////减法计算器类
+//class subcalculator :public abstractcalculator
+//{
+//public:
+//	int getresult()//virtual关键字可写可不写
+//	{
+//		return m_num1 - m_num2;
+//	}
+//};
+//
+////乘法计算器类
+//class mulcalculator :public abstractcalculator
+//{
+//public:
+//	int getresult()//virtual关键字可写可不写
+//	{
+//		return m_num1 * m_num2;
+//	}
+//};
+//
+//void test02()
+//{
+//	abstractcalculator* abc = new addcalculator;
+//	abc->m_num1 = 10;
+//	abc->m_num2 = 20;
+//	cout << abc->getresult() << endl;
+//	//堆区--手动销毁new
+//	delete abc;
+//
+//	abc = new subcalculator;
+//	abc->m_num1 = 10;
+//	abc->m_num2 = 20;
+//	cout << abc->getresult() << endl;
+//
+//	abc = new mulcalculator;
+//	abc->m_num1 = 10;
+//	abc->m_num2 = 20;
+//	cout << abc->getresult() << endl;
+//}
+//
+//int main()
+//{
+//	test02();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//纯虚函数、抽象类
+//纯虚函数语法：viryual 返回值类型 函数名 （参数）=0；
+//类中有了纯虚函数，被称为抽象类--无法实例化对象、子类必须重写抽象类中的纯虚函数
+
+//class base//抽象类
+//{
+//public:
+//	virtual void func() = 0;//纯虚函数
+//};
+//class son :public base
+//{
+//public:
+//	virtual void func() 
+//	{
+//		cout << "func函数的调用" << endl;
+//	};
+//};
+//void test01()
+//{
+//	//son s;//子类要重写虚函数，否则无法实例化对象
+//	base* ba = new son;
+//	ba->func();
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//多态实现案例
+
+//class abstractdrinking
+//{
+//public:
+//	//煮水
+//	virtual void boil() = 0;
+//
+//	//冲泡
+//	virtual void brew() = 0;
+//
+//	//倒入
+//	virtual void pourincup() = 0;
+//
+//	//加辅料
+//	virtual void putsomething() = 0;
+//
+//	//制作饮料
+//	void makedrink()
+//	{
+//		boil();
+//		brew();
+//		pourincup();
+//		putsomething();
+//	}
+//};
+////制作咖啡
+//class coffee :public abstractdrinking
+//{
+//public:
+//	//煮水
+//	void boil()
+//	{
+//		cout << "煮水" << endl;
+//	}
+//
+//	//冲泡
+//	virtual void brew()
+//	{
+//		cout << "冲泡咖啡" << endl;
+//	}
+//
+//	//倒入
+//	virtual void pourincup()
+//	{
+//		cout << "倒入杯中" << endl;
+//	}
+//
+//	//加辅料
+//	virtual void putsomething()
+//	{
+//		cout << "加入糖和牛奶" << endl;
+//	}
+//};
+////制作茶
+//class tea :public abstractdrinking
+//{
+//public:
+//	//煮水
+//	void boil()
+//	{
+//		cout << "煮水" << endl;
+//	}
+//
+//	//冲泡
+//	virtual void brew()
+//	{
+//		cout << "冲泡茶叶" << endl;
+//	}
+//
+//	//倒入
+//	virtual void pourincup()
+//	{
+//		cout << "倒入杯中" << endl;
+//	}
+//
+//	//加辅料
+//	virtual void putsomething()
+//	{
+//		cout << "加入枸杞" << endl;
+//	}
+//};
+////制作函数
+//void dowork(abstractdrinking* abs)//abstractdrinking* abs=new coffee
+//{
+//	abs->makedrink();
+//	delete abs;
+//}
+//void test01()
+//{
+//	//制作咖啡
+//	dowork(new coffee);
+//	dowork(new tea);
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+
+//虚析构与纯虚析构
