@@ -848,3 +848,228 @@ using namespace std;
 
 
 //虚析构与纯虚析构
+
+//class animal
+//{
+//public:
+//	animal()
+//	{
+//		cout << "animal构造函数调用" << endl;
+//	}
+//
+//	//virtual ~animal()//这里改为虚析构才不会导致内存泄露
+//	//{
+//	//	cout << "animal虚析构函数调用" << endl;
+//	//}
+//	
+//	//纯虚析构函数也可以解决内存泄露问题
+//	virtual ~animal() = 0;
+//
+//	//纯虚函数
+//	virtual void speak() = 0;
+//
+//};
+//animal::~animal()
+//{
+//	cout << "animal纯虚析构函数调用" << endl;
+//
+//}
+//class cat :public animal
+//{
+//public:
+//	cat(string name)
+//	{
+//		cout << "cat构造函数调用" << endl;
+//		m_name = new string(name);
+//	}
+//	virtual void speak()
+//	{
+//		cout << "喵喵" << endl;
+//	}
+//	~cat()
+//	{
+//		if (m_name != NULL)
+//		{
+//			cout << "cat析构函数调用" << endl;
+//			delete m_name;//若不释放干净会导致内存泄露
+//			m_name = NULL;
+//		}
+//	}
+//	string *m_name;
+//};
+//void test01()
+//{
+//	animal* an = new cat("tom");
+//	an->speak();
+//	//(非虚析构时）父类指针在析构时，不会调用子类析构函数，若子类有堆区数据，会内存泄露
+//	delete an;
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+//多态案列--电脑组装
+
+//抽象不同零件类
+class cpu
+{
+public:
+	virtual void calculator() = 0;
+};
+class vediocard
+{
+public:
+	virtual void display() = 0;
+};
+class memory
+{
+public:
+	virtual void storage() = 0;
+};
+
+//电脑类
+class computer
+{
+public:
+	computer(cpu* cp, vediocard* vc, memory* mem)
+	{
+		m_cp = cp;
+		m_vc = vc;
+		m_mem = mem;
+	}
+	//工作函数
+	void work()
+	{
+		//调用接口
+		m_cp->calculator();
+		m_vc->display();
+		m_mem->storage();
+	}
+
+	//提供析构函数 释放3个电脑零件
+	~computer()
+	{
+		if (m_cp != NULL)
+		{
+			delete m_cp;
+			m_cp = NULL;
+		}
+
+		if (m_vc != NULL)
+		{
+			delete m_vc;
+			m_vc = NULL;
+		}
+
+		if (m_mem != NULL)
+		{
+			delete m_mem;
+			m_mem = NULL;
+		}
+	}
+private:
+	cpu* m_cp;
+	vediocard* m_vc;
+	memory* m_mem;
+};
+
+//具体厂商
+
+class intelcpu :public cpu
+{
+public:
+	virtual void calculator()
+	{
+		cout << "intel的cpu开始工作" << endl;
+	}
+
+};
+class intelvediocard :public vediocard
+{
+public:
+	virtual void display()
+	{
+		cout << "intel的显卡开始工作" << endl;
+	}
+
+};
+class intelmemory :public memory
+{
+public:
+	virtual void storage()
+	{
+		cout << "intel的内存条开始工作" << endl;
+	}
+
+};
+
+
+class lenovocpu :public cpu
+{
+public:
+	virtual void calculator()
+	{
+		cout << "lenovo的cpu开始工作" << endl;
+	}
+
+};
+class lenovovediocard :public vediocard
+{
+public:
+	virtual void display()
+	{
+		cout << "lenovo的显卡开始工作" << endl;
+	}
+
+};
+class lenovomemory :public memory
+{
+public:
+	virtual void storage()
+	{
+		cout << "lenovo的内存条开始工作" << endl;
+	}
+
+};
+
+void test01()
+{
+	//第一台电脑零件
+	cpu* intelcpu_1 = new intelcpu;
+	vediocard* intelvediocard_1 = new intelvediocard;
+	memory* intelmemory_1 = new intelmemory;
+	//创建第一台电脑
+	cout << "第一台电脑开始工作" << endl;
+	computer* comp1 = new computer(intelcpu_1, intelvediocard_1, intelmemory_1);
+	comp1->work();
+	delete comp1;
+
+	
+	cout << "----------------------------" << endl;
+
+	//第二台电脑
+	cout << "第二台电脑开始工作" << endl;
+	computer* comp2 = new computer(new lenovocpu, new lenovovediocard, new lenovomemory);
+	comp2->work();
+	delete comp2;
+
+	
+	cout << "----------------------------" << endl;
+
+	//第三台电脑
+	cout << "第三台电脑开始工作" << endl;
+	computer* comp3 = new computer(new lenovocpu, new intelvediocard, new lenovomemory);
+	comp3->work();
+	delete comp3;
+}
+
+int main()
+{
+	test01();
+	system("pause");
+	return 0;
+}
