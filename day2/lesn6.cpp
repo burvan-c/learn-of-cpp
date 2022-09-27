@@ -3,6 +3,8 @@
 
 #include<iostream>
 using namespace std;
+#include<string>
+#include<fstream>
 
 
 //继承
@@ -915,158 +917,320 @@ using namespace std;
 //多态案列--电脑组装
 
 //抽象不同零件类
-class cpu
+//class cpu
+//{
+//public:
+//	virtual void calculator() = 0;
+//};
+//class vediocard
+//{
+//public:
+//	virtual void display() = 0;
+//};
+//class memory
+//{
+//public:
+//	virtual void storage() = 0;
+//};
+//
+////电脑类
+//class computer
+//{
+//public:
+//	computer(cpu* cp, vediocard* vc, memory* mem)
+//	{
+//		m_cp = cp;
+//		m_vc = vc;
+//		m_mem = mem;
+//	}
+//	//工作函数
+//	void work()
+//	{
+//		//调用接口
+//		m_cp->calculator();
+//		m_vc->display();
+//		m_mem->storage();
+//	}
+//
+//	//提供析构函数 释放3个电脑零件
+//	~computer()
+//	{
+//		if (m_cp != NULL)
+//		{
+//			delete m_cp;
+//			m_cp = NULL;
+//		}
+//
+//		if (m_vc != NULL)
+//		{
+//			delete m_vc;
+//			m_vc = NULL;
+//		}
+//
+//		if (m_mem != NULL)
+//		{
+//			delete m_mem;
+//			m_mem = NULL;
+//		}
+//	}
+//private:
+//	cpu* m_cp;
+//	vediocard* m_vc;
+//	memory* m_mem;
+//};
+//
+////具体厂商
+//
+//class intelcpu :public cpu
+//{
+//public:
+//	virtual void calculator()
+//	{
+//		cout << "intel的cpu开始工作" << endl;
+//	}
+//
+//};
+//class intelvediocard :public vediocard
+//{
+//public:
+//	virtual void display()
+//	{
+//		cout << "intel的显卡开始工作" << endl;
+//	}
+//
+//};
+//class intelmemory :public memory
+//{
+//public:
+//	virtual void storage()
+//	{
+//		cout << "intel的内存条开始工作" << endl;
+//	}
+//
+//};
+//
+//
+//class lenovocpu :public cpu
+//{
+//public:
+//	virtual void calculator()
+//	{
+//		cout << "lenovo的cpu开始工作" << endl;
+//	}
+//
+//};
+//class lenovovediocard :public vediocard
+//{
+//public:
+//	virtual void display()
+//	{
+//		cout << "lenovo的显卡开始工作" << endl;
+//	}
+//
+//};
+//class lenovomemory :public memory
+//{
+//public:
+//	virtual void storage()
+//	{
+//		cout << "lenovo的内存条开始工作" << endl;
+//	}
+//
+//};
+//
+//void test01()
+//{
+//	//第一台电脑零件
+//	cpu* intelcpu_1 = new intelcpu;
+//	vediocard* intelvediocard_1 = new intelvediocard;
+//	memory* intelmemory_1 = new intelmemory;
+//	//创建第一台电脑
+//	cout << "第一台电脑开始工作" << endl;
+//	computer* comp1 = new computer(intelcpu_1, intelvediocard_1, intelmemory_1);
+//	comp1->work();
+//	delete comp1;
+//
+//	
+//	cout << "----------------------------" << endl;
+//
+//	//第二台电脑
+//	cout << "第二台电脑开始工作" << endl;
+//	computer* comp2 = new computer(new lenovocpu, new lenovovediocard, new lenovomemory);
+//	comp2->work();
+//	delete comp2;
+//
+//	
+//	cout << "----------------------------" << endl;
+//
+//	//第三台电脑
+//	cout << "第三台电脑开始工作" << endl;
+//	computer* comp3 = new computer(new lenovocpu, new intelvediocard, new lenovomemory);
+//	comp3->work();
+//	delete comp3;
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+
+//文件操作--文件可以将数据持久化
+//文本文件（ascii)、二进制文件(0101)
+//ofstream-写操作、ifstream-读操作、fstream-读写操作
+
+//写文件（文本文件）
+//void test01()
+//{
+//	//1.包含头文件
+//	//2.创建流对象
+//	ofstream ofs;//output file stream
+//
+//	//3.指定打开方式
+//	ofs.open("test.txt", ios::out);
+//
+//	//4.写内容
+//	ofs << "姓名：张三" << endl;
+//	ofs << "性别：男" << endl;
+//	ofs << "年龄：20" << endl;
+//
+//	//5.关闭文件
+//	ofs.close();
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+//读文件（文本文件）
+//void test01()
+//{
+//	//1.包含头文件
+//	//2.创建流对象
+//	ifstream ifs;//input file stream
+//
+//	//3.打开文件并判断是否成功
+//	ifs.open("test.txt", ios::in);
+//	if (!ifs.is_open())
+//	{
+//		cout << "文件打开失败" << endl;
+//		return;
+//	}
+//
+//	//4.读数据
+//	
+//	//第一种
+//	/*char buf[1024] = { 0 };
+//	while (ifs >> buf)
+//	{
+//		cout << buf << endl;
+//	}*/
+//
+//	//第二种
+//	/*char buf[1024] = { 0 };
+//	while (ifs.getline(buf, sizeof(buf)))
+//	{
+//		cout << buf << endl;
+//	}*/
+//
+//	//第三种
+//	/*string buf;
+//	while (getline(ifs, buf))
+//	{
+//		cout << buf << endl;
+//	}*/
+//
+//	//第四种--不建议这种，一个一个字符读太慢
+//	char c;
+//	while ((c = ifs.get()) != EOF)//EOF end of file
+//	{
+//		cout << c;
+//	}
+//
+//	//5.关闭文件
+//	ifs.close();
+//}
+//
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+
+//二进制写文件
+
+//class Person
+//{
+//public:
+//	char m_name[64];
+//	int m_age;
+//};
+//void test01()
+//{
+//	//1.包含头文件
+//	//2.创建流对象
+//	ofstream ofs("person.txt", ios::out | ios::binary);//也可以写在这里
+//
+//	//3.打开文件
+//	//ofs.open("person.txt", ios::out | ios::binary);
+//
+//	//4.写文件
+//	Person p = { "zhangsan",18 };
+//	ofs.write((const char*)&p, sizeof(Person));
+//
+//	//5.关闭
+//	ofs.close();
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
+
+
+//二进制读文件
+
+class Person
 {
 public:
-	virtual void calculator() = 0;
+	char m_name[64];
+	int m_age;
 };
-class vediocard
-{
-public:
-	virtual void display() = 0;
-};
-class memory
-{
-public:
-	virtual void storage() = 0;
-};
-
-//电脑类
-class computer
-{
-public:
-	computer(cpu* cp, vediocard* vc, memory* mem)
-	{
-		m_cp = cp;
-		m_vc = vc;
-		m_mem = mem;
-	}
-	//工作函数
-	void work()
-	{
-		//调用接口
-		m_cp->calculator();
-		m_vc->display();
-		m_mem->storage();
-	}
-
-	//提供析构函数 释放3个电脑零件
-	~computer()
-	{
-		if (m_cp != NULL)
-		{
-			delete m_cp;
-			m_cp = NULL;
-		}
-
-		if (m_vc != NULL)
-		{
-			delete m_vc;
-			m_vc = NULL;
-		}
-
-		if (m_mem != NULL)
-		{
-			delete m_mem;
-			m_mem = NULL;
-		}
-	}
-private:
-	cpu* m_cp;
-	vediocard* m_vc;
-	memory* m_mem;
-};
-
-//具体厂商
-
-class intelcpu :public cpu
-{
-public:
-	virtual void calculator()
-	{
-		cout << "intel的cpu开始工作" << endl;
-	}
-
-};
-class intelvediocard :public vediocard
-{
-public:
-	virtual void display()
-	{
-		cout << "intel的显卡开始工作" << endl;
-	}
-
-};
-class intelmemory :public memory
-{
-public:
-	virtual void storage()
-	{
-		cout << "intel的内存条开始工作" << endl;
-	}
-
-};
-
-
-class lenovocpu :public cpu
-{
-public:
-	virtual void calculator()
-	{
-		cout << "lenovo的cpu开始工作" << endl;
-	}
-
-};
-class lenovovediocard :public vediocard
-{
-public:
-	virtual void display()
-	{
-		cout << "lenovo的显卡开始工作" << endl;
-	}
-
-};
-class lenovomemory :public memory
-{
-public:
-	virtual void storage()
-	{
-		cout << "lenovo的内存条开始工作" << endl;
-	}
-
-};
-
 void test01()
 {
-	//第一台电脑零件
-	cpu* intelcpu_1 = new intelcpu;
-	vediocard* intelvediocard_1 = new intelvediocard;
-	memory* intelmemory_1 = new intelmemory;
-	//创建第一台电脑
-	cout << "第一台电脑开始工作" << endl;
-	computer* comp1 = new computer(intelcpu_1, intelvediocard_1, intelmemory_1);
-	comp1->work();
-	delete comp1;
+	//1.包含头文件
+	//2.创建流对象
+	ifstream ifs;
 
-	
-	cout << "----------------------------" << endl;
+	//3.打开文件并判断是否成功
+	ifs.open("person.txt", ios::in | ios::binary);
+	if (!ifs.is_open())
+	{
+		cout << "文件打开失败" << endl;
+		return;
+	}
 
-	//第二台电脑
-	cout << "第二台电脑开始工作" << endl;
-	computer* comp2 = new computer(new lenovocpu, new lenovovediocard, new lenovomemory);
-	comp2->work();
-	delete comp2;
+	//4.读文件
+	Person p;
+	ifs.read((char*)&p, sizeof(Person));
+	cout << p.m_name << endl;
+	cout << p.m_age << endl;
 
-	
-	cout << "----------------------------" << endl;
-
-	//第三台电脑
-	cout << "第三台电脑开始工作" << endl;
-	computer* comp3 = new computer(new lenovocpu, new intelvediocard, new lenovomemory);
-	comp3->work();
-	delete comp3;
+	//5.关闭
+	ifs.close();
 }
-
 int main()
 {
 	test01();
