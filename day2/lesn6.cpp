@@ -1,10 +1,10 @@
 //#define _CRT_SECURE_NO_WARNINGS 1
 //#pragma once
 
-#include<iostream>
-using namespace std;
-#include<string>
-#include<fstream>
+//#include<iostream>
+//using namespace std;
+//#include<string>
+//#include<fstream>
 
 
 //继承
@@ -545,7 +545,7 @@ using namespace std;
 //2.子类重写父类的虚函数（重写：函数返回值类型 函数名 参数 完全相同）
 
 //动态多态使用
-//1.父类的指针或引用 执行子类对象
+//1.父类的指针或引用 执行子类对象******************************************************************
 
 //class animal
 //{
@@ -686,7 +686,7 @@ using namespace std;
 //
 //void test02()
 //{
-//	abstractcalculator* abc = new addcalculator;
+//	abstractcalculator* abc = new addcalculator;***********************************************
 //	abc->m_num1 = 10;
 //	abc->m_num2 = 20;
 //	cout << abc->getresult() << endl;
@@ -733,7 +733,7 @@ using namespace std;
 //void test01()
 //{
 //	//son s;//子类要重写虚函数，否则无法实例化对象
-//	base* ba = new son;
+//	base* ba = new son;//多态：父类指针或引用执行子类对象
 //	ba->func();
 //}
 //int main()
@@ -1202,38 +1202,38 @@ using namespace std;
 
 //二进制读文件
 
-class Person
-{
-public:
-	char m_name[64];
-	int m_age;
-};
-void test01()
-{
-	//1.包含头文件
-	//2.创建流对象
-	ifstream ifs;
-
-	//3.打开文件并判断是否成功
-	ifs.open("person.txt", ios::in | ios::binary);
-	if (!ifs.is_open())
-	{
-		cout << "文件打开失败" << endl;
-		return;
-	}
-
-	//4.读文件
-	Person p;
-	ifs.read((char*)&p, sizeof(Person));
-	cout << p.m_name << endl;
-	cout << p.m_age << endl;
-
-	//5.关闭
-	ifs.close();
-}
-int main()
-{
-	test01();
-	system("pause");
-	return 0;
-}
+//class Person
+//{
+//public:
+//	char m_name[64];
+//	int m_age;
+//};
+//void test01()
+//{
+//	//1.包含头文件
+//	//2.创建流对象
+//	ifstream ifs;
+//
+//	//3.打开文件并判断是否成功
+//	ifs.open("person.txt", ios::in | ios::binary);
+//	if (!ifs.is_open())
+//	{
+//		cout << "文件打开失败" << endl;
+//		return;
+//	}
+//
+//	//4.读文件
+//	Person p;
+//	ifs.read((char*)&p, sizeof(Person));
+//	cout << p.m_name << endl;
+//	cout << p.m_age << endl;
+//
+//	//5.关闭
+//	ifs.close();
+//}
+//int main()
+//{
+//	test01();
+//	system("pause");
+//	return 0;
+//}
