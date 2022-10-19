@@ -39,15 +39,15 @@
     <ClCompile Include="lesn6.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
-    <ClCompile Include="case3_.cpp">
+    <ClCompile Include="workermanager.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
-    <ClCompile Include="case3.cpp">
+    <ClCompile Include="职工管理系统.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="case3.h">
+    <ClInclude Include="workermanager.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

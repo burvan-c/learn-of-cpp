@@ -128,8 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="case2.cpp" />
-    <ClCompile Include="case3.cpp" />
-    <ClCompile Include="case3_.cpp" />
+    <ClCompile Include="职工管理系统.cpp" />
+    <ClCompile Include="workermanager.cpp" />
     <ClCompile Include="case_1.cpp" />
     <ClCompile Include="lesn1.cpp" />
     <ClCompile Include="lesn2.cpp" />
@@ -139,7 +139,7 @@
     <ClCompile Include="lesn6.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="case3.h" />
+    <ClInclude Include="workermanager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
