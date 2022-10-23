@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="case2.cpp" />
+    <ClCompile Include="employee.cpp" />
     <ClCompile Include="职工管理系统.cpp" />
     <ClCompile Include="workermanager.cpp" />
     <ClCompile Include="case_1.cpp" />
@@ -139,6 +140,8 @@
     <ClCompile Include="lesn6.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="employee.h" />
+    <ClInclude Include="worker.h" />
     <ClInclude Include="workermanager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
