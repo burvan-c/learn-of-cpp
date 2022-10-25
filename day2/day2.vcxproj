@@ -127,8 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="boss.cpp" />
     <ClCompile Include="case2.cpp" />
     <ClCompile Include="employee.cpp" />
+    <ClCompile Include="manager.cpp" />
     <ClCompile Include="职工管理系统.cpp" />
     <ClCompile Include="workermanager.cpp" />
     <ClCompile Include="case_1.cpp" />
@@ -140,7 +142,9 @@
     <ClCompile Include="lesn6.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="boss.h" />
     <ClInclude Include="employee.h" />
+    <ClInclude Include="manager.h" />
     <ClInclude Include="worker.h" />
     <ClInclude Include="workermanager.h" />
   </ItemGroup>
