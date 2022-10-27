@@ -48,6 +48,7 @@ int main()
 			wm.exitsystem();
 			break;
 		case 1://Ôö¼Ó
+			wm.add_emp();
 			break;
 		case 2://ÏÔÊ¾
 			break;

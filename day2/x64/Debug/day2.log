@@ -1,2 +1,2 @@
-﻿  职工管理系统.cpp
-LINK : fatal error LNK1168: 无法打开 D:\learn-of-cpp\day2\x64\Debug\day2.exe 进行写入
+﻿  workermanager.cpp
+  day2.vcxproj -> D:\learn-of-cpp\day2\x64\Debug\day2.exe
