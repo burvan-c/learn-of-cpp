@@ -7,6 +7,10 @@ using namespace std;
 #include"manager.h"
 #include"boss.h"
 
+#include<fstream>
+#define filename "empfille.txt"
+
+
 
 class workermanager
 {
@@ -25,6 +29,9 @@ public:
 
 	//添加职工
 	void add_emp();
+
+	//保存文件
+	void save();
 
 	~workermanager();
 };

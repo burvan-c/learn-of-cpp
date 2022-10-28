@@ -81,10 +81,13 @@ void workermanager::add_emp()
 			{
 			case 1:
 				worker = new employee(id, name, 1);
+				break;
 			case 2:
-				worker = new manager(id, name, 3);
+				worker = new manager(id, name, 2);
+				break;
 			case 3:
 				worker = new boss(id, name, 3);
+				break;
 			default:
 				break;
 			}
@@ -103,6 +106,8 @@ void workermanager::add_emp()
 		this->m_empnum = newsize;
 
 		//成功添加后 保存到文件中
+		this->save();
+
 
 		//提示添加成功
 		cout << "成功添加" << addnum << "名新职工" << endl;
@@ -119,8 +124,29 @@ void workermanager::add_emp()
 }
 
 
+void workermanager::save()
+{
+	ofstream ofs;
+	ofs.open(filename, ios::out);//用输出方式打开文件--写文件
+
+	//将每个人数据写入到文件中
+	for (int i = 0; i < m_empnum; i++)
+	{
+		ofs << this->m_emparray[i]->m_id << " "
+			<< this->m_emparray[i]->m_name << " "
+			<< this->m_emparray[i]->m_deptid << endl;
+	}
+
+	//关闭文件
+	ofs.close();
+}
+
 
 workermanager::~workermanager()
 {
-
+	if (this->m_emparray != NULL)
+	{
+		delete[]this->m_emparray;
+		this->m_emparray = NULL;
+	}
 }
